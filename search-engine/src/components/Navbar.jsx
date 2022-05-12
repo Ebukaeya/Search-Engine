@@ -8,10 +8,10 @@ const Narbar = () => {
   /* setting the css for the selected navbar */
   let css;
   let serviceCss;
-  
-  location.pathname === "/favourites" 
+
+  location.pathname === "/favourites"
     ? (css = "")
-    : (css = "navigationTstatic")/*  */;
+    : (css = "navigationTstatic") /*  */;
   location.pathname === "/favourites"
     ? (serviceCss = "navigationTstatic")
     : (serviceCss = "");

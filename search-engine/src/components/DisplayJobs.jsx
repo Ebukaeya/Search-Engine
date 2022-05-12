@@ -1,7 +1,6 @@
 import Jobs from "./Jobs";
 
 const DisplayJobs = ({ jobs, search }) => {
-  
   return (
     <>
       <div className="JobsWrapper">

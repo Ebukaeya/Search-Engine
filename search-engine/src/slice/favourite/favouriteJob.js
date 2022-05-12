@@ -15,7 +15,6 @@ const favouriteJobSlice = createSlice({
       };
     },
     removeFavouriteJob: (state, action) => {
-
       return {
         ...state,
         jobs: state.jobs.filter((job, i) => job._id !== action.payload),

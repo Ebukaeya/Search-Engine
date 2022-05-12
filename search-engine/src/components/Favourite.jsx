@@ -1,18 +1,16 @@
-import DisplayJobs from "./DisplayJobs"
-import { connect } from "react-redux"
+import DisplayJobs from "./DisplayJobs";
+import { connect } from "react-redux";
 
-const mapStateToProps = (state)=>{
+const mapStateToProps = (state) => {
+  return {
+    favJobs: state.favouriteJobs.jobs,
+  };
+};
 
-    return{
-        favJobs: state.favouriteJobs.jobs
-    }
-}
-
-const Favourite = ({favJobs})=>{
-
-    return(
-        <>
-  <div className="mycontainer">
+const Favourite = ({ favJobs }) => {
+  return (
+    <>
+      <div className="mycontainer">
         <div className="companyDivWrapper">
           <span>
             Jobs for{" "}
@@ -20,11 +18,11 @@ const Favourite = ({favJobs})=>{
           </span>
           <hr></hr>
 
-          {favJobs && <DisplayJobs jobs={{data:favJobs}}/>}
+          {favJobs && <DisplayJobs jobs={{ data: favJobs }} />}
         </div>
       </div>
-        </>
-    )
-}
+    </>
+  );
+};
 
-export default connect(mapStateToProps)(Favourite)
+export default connect(mapStateToProps)(Favourite);

@@ -27,13 +27,11 @@ const Jobs = ({ job, addFavJob, removeJob }) => {
 
   const [selected, setSelected] = useState(false);
 
-  
   console.log(location.pathname);
 
-  useEffect(()=>{
-
+  useEffect(() => {
     location.pathname === "/favourites" && setSelected(true);
-  },[])
+  }, []);
   return (
     <>
       <div className="Jobslist">

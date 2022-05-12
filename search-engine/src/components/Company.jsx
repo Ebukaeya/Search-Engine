@@ -5,30 +5,29 @@ import { useEffect, useState } from "react";
 const Company = () => {
   const params = useParams();
 
-
   const [companyJobs, setCompanyJobs] = useState(null);
   const [loadingJobs, setLoadingJobs] = useState(false);
 
-  const fetchJobs = async()=>{
+  const fetchJobs = async () => {
     try {
-        setLoadingJobs(true)
-        const response = await fetch(
-          "https://strive-jobs-api.herokuapp.com/jobs?company=" + params.company
-        );
-        if (response.ok) {
-          let jobs = await response.json();
-          setCompanyJobs(jobs);
-          setLoadingJobs(false)
-        } else {
-          alert("something is wrong");
-        }
-      } catch (error) {
-        console.log(error);
+      setLoadingJobs(true);
+      const response = await fetch(
+        "https://strive-jobs-api.herokuapp.com/jobs?company=" + params.company
+      );
+      if (response.ok) {
+        let jobs = await response.json();
+        setCompanyJobs(jobs);
+        setLoadingJobs(false);
+      } else {
+        alert("something is wrong");
       }
-  }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-  useEffect( () => {
-   fetchJobs()
+  useEffect(() => {
+    fetchJobs();
   }, []);
   return (
     <>
@@ -40,7 +39,7 @@ const Company = () => {
           </span>
           <hr></hr>
 
-          {companyJobs && <DisplayJobs jobs={companyJobs}/>}
+          {companyJobs && <DisplayJobs jobs={companyJobs} />}
         </div>
       </div>
     </>
