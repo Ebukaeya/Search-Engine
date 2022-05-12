@@ -7,21 +7,23 @@ const Home = () => {
   const [loadingJobs, setLoadingJobs] = useState(false);
   const [jobs, setJobs] = useState(null);
 
-  const handleSubmit = async()=>{
-      setLoadingJobs(true)
-      try {
-        const response = await fetch(`https://strive-jobs-api.herokuapp.com/jobs?search=${search}&limit=10` )
-        if(response.ok){
-            const jobs = await response.json()
-            setJobs(jobs)
-            setLoadingJobs(false)
-        }else {alert("fetch failed")}
-
-      } catch (error) {
-          console.log(error)
+  const handleSubmit = async () => {
+    setLoadingJobs(true);
+    try {
+      const response = await fetch(
+        `https://strive-jobs-api.herokuapp.com/jobs?search=${search}&limit=10`
+      );
+      if (response.ok) {
+        const jobs = await response.json();
+        setJobs(jobs);
+        setLoadingJobs(false);
+      } else {
+        alert("fetch failed");
       }
-  }
-
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -54,7 +56,7 @@ const Home = () => {
           <button onClick={handleSubmit}>Search</button>
         </div>
 
-        {jobs && <DisplayJobs jobs={jobs}/>}
+        {jobs && <DisplayJobs jobs={jobs} search={search} />}
       </div>
     </>
   );

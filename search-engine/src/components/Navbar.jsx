@@ -8,10 +8,11 @@ const Narbar = () => {
   /* setting the css for the selected navbar */
   let css;
   let serviceCss;
-  location.pathname === "/company"
-    ? (css = "navigationTstatic")
-    : (css = "");
-  location.pathname === "/ourService"
+  
+  location.pathname === "/favourites" 
+    ? (css = "")
+    : (css = "navigationTstatic")/*  */;
+  location.pathname === "/favourites"
     ? (serviceCss = "navigationTstatic")
     : (serviceCss = "");
 
@@ -60,7 +61,7 @@ const Narbar = () => {
                 </Link>
                 <Link
                   style={{ textDecoration: "none", color: "inherit" }}
-                  to={"/ourService"}
+                  to={"/favourites"}
                 >
                   <span className={"navigationT " + serviceCss}>
                     {" "}

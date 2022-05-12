@@ -83,6 +83,12 @@ background-color: aliceblue;
     margin-right: 4px;
     margin-bottom: 10px;
 }
+.jobs{
+    font-weight: 700;
+}
+.comapnyname{
+    font-size: 14px;
+}
 .viewJob{
     font-size: 14px;
 }
@@ -99,4 +105,8 @@ background-color: aliceblue;
 }
 .svgs{
     cursor: pointer;
+}
+
+.companyDivWrapper{
+    margin-top: 120px;
 }
