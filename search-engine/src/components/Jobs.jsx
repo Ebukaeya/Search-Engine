@@ -1,6 +1,6 @@
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { connect } from "react-redux";
+import { connect, useDispatch, useSelector } from "react-redux";
 import {
   addFavouriteJob,
   removeFavouriteJob,
@@ -24,6 +24,8 @@ const mapDispatchToProps = (dispatch) => {
 const Jobs = ({ job, addFavJob, removeJob }) => {
   const navigate = useNavigate();
   const location = useLocation();
+
+  const dispatch = useDispatch()
 
   const [selected, setSelected] = useState(false);
 
@@ -82,7 +84,8 @@ const Jobs = ({ job, addFavJob, removeJob }) => {
               {selected ? (
                 <div
                   onClick={() => {
-                    removeJob(job._id);
+                    dispatch(removeFavouriteJob(job._id));
+                    console.log(job._id)
                     setSelected(false);
                   }}
                   className="svgs"
@@ -105,7 +108,7 @@ const Jobs = ({ job, addFavJob, removeJob }) => {
               ) : (
                 <div
                   onClick={() => {
-                    addFavJob(job);
+                    dispatch(addFavouriteJob(job));
                     setSelected(true);
                   }}
                   className="svgs"
@@ -129,4 +132,4 @@ const Jobs = ({ job, addFavJob, removeJob }) => {
     </>
   );
 };
-export default connect(mapStateToProps, mapDispatchToProps)(Jobs);
+export default Jobs;
